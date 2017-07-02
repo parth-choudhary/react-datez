@@ -54,8 +54,7 @@ class ReactDatez extends Component {
             selectedDate: (input.value && moment(input.value, this.props.format).isValid()) ? moment(input.value, this.props.format) : '',
             datePickerInputHeight: `${this.dateInput.clientHeight}px`,
             weekStartsOn: moment(`1 ${this.state.currentMonthYear}`, 'D M YYYY').day(),
-            currentMonthYear: (input.value && moment(input.value, this.props.format).isValid()) ? moment(input.value, this.props.format).format('M YYYY') : moment().format('M YYYY'),
-            yearJumpOpen: true
+            currentMonthYear: (input.value && moment(input.value, this.props.format).isValid()) ? moment(input.value, this.props.format).format('M YYYY') : moment().format('M YYYY')
         })
     }
 
