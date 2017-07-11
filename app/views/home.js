@@ -38,7 +38,7 @@ class Home extends Component {
 
                     <div className="form-group m-b-3">
                         <label htmlFor="exampleDate2" className="m-b-1">Multi-calendar Picker (Non Redux)</label>
-                        <ReactDatez name="dateInput" handleChange={this.handleChange} value={this.state.dateInput} displayCalendars={2} />
+                        <ReactDatez allowPast name="dateInput" handleChange={this.handleChange} value={this.state.dateInput} displayCalendars={2} />
                     </div>
 
                     <div className="form-group m-b-3">

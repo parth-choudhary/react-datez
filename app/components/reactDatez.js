@@ -247,12 +247,19 @@ class ReactDatez extends Component {
             selectedDate: date
         })
 
+        const today = moment()
+        const currentMonth = today.month() + 1
+        const currentYear = today.year()
+        const currentDate = moment(`${currentYear}-${currentMonth}-01`)
 
         if (this.props.input) {
           this.props.input.onChange(moment(date, this.props.format).format('YYYY-MM-DD'))
+        } else if (date.isSame(currentDate)) {
+            this.props.handleChange('Present')
         } else {
             this.props.handleChange(moment(date, this.props.format).format('YYYY-MM-DD'))
         }
+
 
         this.setState({
             yearJumpOpen: !this.state.yearJumpOpen,
