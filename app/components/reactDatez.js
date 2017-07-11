@@ -9,7 +9,7 @@ class ReactDatez extends Component {
         this.state = {
             datePickerOpen: false,
             monthSelectOpen: false,
-            yearJumpOpen: false,
+            yearJumpOpen: true,
             datePickerInputHeight: null,
             weekStartsOn: null,
             currentMonthYear: null,
@@ -229,6 +229,36 @@ class ReactDatez extends Component {
             weekStartsOn: moment(`1 ${this.state.currentMonthYear}`, 'D M YYYY').set('month', month - 1).day(),
             monthSelectOpen: false
         })
+
+        const getdate = moment(this.state.currentMonthYear, 'MM YYYY').format(`YYYY-${month}`)
+        const stringDate = `${getdate}-01`
+
+        const date = moment(stringDate)
+
+        if (this.isPast(date) && !this.props.allowPast) {
+            return false
+        }
+
+        if (this.isFuture(date) && !this.props.allowFuture) {
+            return false
+        }
+
+        this.setState({
+            selectedDate: date
+        })
+
+
+        if (this.props.input) {
+          this.props.input.onChange(moment(date, this.props.format).format('YYYY-MM-DD'))
+        } else {
+            this.props.handleChange(moment(date, this.props.format).format('YYYY-MM-DD'))
+        }
+
+        this.setState({
+            yearJumpOpen: !this.state.yearJumpOpen,
+        })
+
+        return this.closePicker()
     }
 
     clickYear(e, year) {
@@ -241,6 +271,13 @@ class ReactDatez extends Component {
         })
 
         this.toggleYearJump()
+    }
+
+    handleValue(value) {
+      if (value === 'Present') {
+        return 'Present'
+      }
+      return moment(value, 'YYYY-MM-DD').format(this.props.format)
     }
 
     renderCalendar(offset) {
@@ -285,7 +322,7 @@ class ReactDatez extends Component {
 
         return (
             <div className={rdatezClass} ref={(element) => { this.rdatez = element }} >
-                { !this.props.isRedux ? <input onClick={this.openPicker} onFocus={this.openPicker} readOnly value={moment(this.props.value, 'YYYY-MM-DD').format(this.props.format)} ref={(element) => { this.dateInput = element }} /> : <input onClick={this.openPicker} onFocus={this.openPicker} readOnly value={input.value && moment(input.value, 'YYYY-MM-DD').format(this.props.format)} ref={(element) => { this.dateInput = element }} /> }
+                { !this.props.isRedux ? <input onClick={this.openPicker} onFocus={this.openPicker} readOnly value={this.handleValue(this.props.value)} ref={(element) => { this.dateInput = element }} /> : <input onClick={this.openPicker} onFocus={this.openPicker} readOnly value={this.handleValue(input.value)} ref={(element) => { this.dateInput = element }} /> }
                 { this.state.datePickerOpen && <div className={pickerClass} style={{ top: this.state.datePickerInputHeight }}>
                     <div>
                         <header className="rdatez-header">
