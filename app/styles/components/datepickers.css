@@ -179,10 +179,12 @@
 
 		&-year {
 			right: 48px;
+			display: none !important;
 		}
 
 		&-today {
 			left: 48px;
+			display: none !important;
 		}
 
 		&-prev {
