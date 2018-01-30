@@ -350,11 +350,7 @@ class ReactDatez extends Component {
                                 </svg>
                             </button>
                             <button type="button" className="rdatez-btn rdatez-btn-today" onClick={() => { this.props.handleChange('Present'); this.closePicker() }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-                                    <path d="M24,3H19V1.5a.5.5,0,0,0-1,0V3H7V1.5a.5.5,0,0,0-1,0V3H1A1,1,0,0,0,0,4V24a1,1,0,0,0,1,1H24a1,1,0,0,0,1-1V4A1,1,0,0,0,24,3Zm0,21H1V9H24ZM24,8H1V4H24Z" />
-                                    <path d="M12.5,22A5.5,5.5,0,1,0,7,16.5,5.5,5.5,0,0,0,12.5,22Zm0-10A4.5,4.5,0,1,1,8,16.5,4.5,4.5,0,0,1,12.5,12Z" />
-                                    <path d="M14.2,18.9a.5.5,0,1,0,.6-.8L13,16.75V14.5a.5.5,0,0,0-1,0V17a.5.5,0,0,0,.2.4Z" />
-                                </svg>
+                                <img alt="today" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJgSURBVGhD7ZnNyw1RHMdHiCxINggLbCjZ2ChLK2+FJFZKyEYWdkpZWIgNRVn4C0QWNhIbWREpCwsSiiQvec27z+feO3WbufN47syZ60zPfOpTc86593f6Ps+8nDk3GYId+Ar/9HyIqzAUR/EDWvsX3sL5GJQp+BHTEKk3MQTLMVtbT2NQZqGFn3ZaSbII+9tVWY/Wu9Jp5dvBaFSQnfgOLVBkNkhos0HG8jbOxRxv8De+HWAaMBvEi3LQ54c1vf6yQb7joM9/QsePYQ4H3ncPc8R2ann2OH6208rgwL+CPMfZuKLXDhVkHVrvKlp/e68dPMhk9F/qZ/q9hiFYgp7W2foncBClg4h/tQeYnqc+Q5ZhKA7gE7T2a7yMc3AQlYLExMQJ4lpncQM8iGMGaZqFQXzAPW6A6Sq8vdhjoQ0SG22QOtmI07qH4ya6IGvQxeI9dGE6XqIKMh3diXHew3YMQVRBfLtzzvs41Y4hiCbISvQ19ieW2RuLIojXwh10vpN2lCCKIIfQuR7hDDtK8N+D+Er7Bb1TrbWjJLUF2YQLuoeFTMLr6Dzn7ahALUF8FnzDZ+gebhG70TleojslVaglyEy8gX7fTb7VmGUeprswW+2oSG2nlkuMC2iNz7gB+7mIjl3qtKpT68XubfUMWucH7kLZgva57Rrq945ag6QcQWt5Z/LHmxe99h4MxUiCyF70qW1N9RryrhWKkQWRzfgVfW4stSMgIw0i3pr3dw+DMvIgddEGiY02SGy0QWJj4gRx5bqtAZ7CwiB30cEm6Zoux0I8juca4j4MuRBtCUiS/AUm3g15AXIDmAAAAABJRU5ErkJggg==" />
                             </button>
                             { this.props.yearJump && <button type="button" className="rdatez-btn rdatez-btn-year" onClick={this.toggleYearJump}>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
