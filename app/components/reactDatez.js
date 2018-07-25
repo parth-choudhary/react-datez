@@ -233,7 +233,7 @@ class ReactDatez extends Component {
         const getdate = moment(this.state.currentMonthYear, 'MM YYYY').format(`YYYY-${month}`)
         const stringDate = `${getdate}-01`
 
-        const date = moment(stringDate)
+        const date = moment(stringDate, 'YYYY-MM-DD')
 
         if (this.isPast(date) && !this.props.allowPast) {
             return false
@@ -250,7 +250,7 @@ class ReactDatez extends Component {
         const today = moment()
         const currentMonth = today.month() + 1
         const currentYear = today.year()
-        const currentDate = moment(`${currentYear}-${currentMonth}-01`)
+        const currentDate = moment(`${currentYear}-${currentMonth}-01`, 'YYYY-MM-DD')
 
         if (this.props.input) {
           this.props.input.onChange(moment(date, this.props.format).format('YYYY-MM-DD'))
